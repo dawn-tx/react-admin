@@ -24,15 +24,15 @@ function getTableNames(dbUrl) {
 
         connection.connect();
 
-        const tableInfoSql = `select table_name, table_comment from information_schema.tables where table_schema='${database}' and table_type='base table'`;
+        const tableInfoSql = `select table_name, table_comment from information_schema.tables where table_schema='${database}' and table_type='BASE TABLE'`;
 
         connection.query(tableInfoSql, function (error, results) {
             if (error) return reject(error);
 
             const result = results.map(item => {
                 return {
-                    name: item.table_name,
-                    comment: item.table_comment,
+                    name: item.TABLE_NAME,
+                    comment: item.TABLE_COMMENT,
                 };
             });
             resolve(result);

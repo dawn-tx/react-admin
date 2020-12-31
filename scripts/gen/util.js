@@ -155,8 +155,10 @@ function getConfigFromDbTable(options) {
     } = options;
 
     // 下划线转连字符
-    const moduleName = tableName.replace(/_/g, '-');
+    //const moduleName = tableName.replace(/_/g, '-');
 
+    //转下划线
+    const moduleName = tableName.replace(/-/g, '_');
     // 复数
     const moduleNames = inflection.pluralize(moduleName);
     const ModuleName = inflection.camelize(moduleName);
